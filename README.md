@@ -2,8 +2,8 @@
 
 A centralized backend platform for airports and malls to manage parking zones and the high-demand reservation of limited EV charging spots. Built with **Go + Echo + GORM + PostgreSQL**, following **strict Clean Architecture** with concurrency-safe reservations.
 
-- **Live URL:** `https://spotsync-api.onrender.com` _(replace with your deployed URL)_
-- **GitHub:** `https://github.com/yourusername/spotsync-api` _(replace with your repo)_
+- **Live URL:** `https://spotsync-api-u7bo.onrender.com` 
+- **GitHub:** `https://github.com/NajibHossain49/SpotSync` 
 
 ---
 
@@ -95,8 +95,8 @@ When two drivers grab the last EV spot simultaneously, a naive read-then-write l
 
 ```bash
 # 1. Clone
-git clone https://github.com/yourusername/spotsync-api.git
-cd spotsync-api
+git clone https://github.com/NajibHossain49/SpotSync
+cd SpotSync
 
 # 2. Create your .env from the example
 cp .env.example .env
