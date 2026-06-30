@@ -1,0 +1,79 @@
+### SpotSync API – test requests (use VS Code "REST Client" or IntelliJ HTTP client)
+@base = http://localhost:8080/api/v1
+
+### Health check
+GET http://localhost:8080/
+
+### 1. Register an admin
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin User",
+  "email": "admin@spotsync.com",
+  "password": "securePassword123",
+  "role": "admin"
+}
+
+### 2. Register a driver
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@spotsync.com",
+  "password": "securePassword123",
+  "role": "driver"
+}
+
+### 3. Login (copy the token from the response into @token below)
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@spotsync.com",
+  "password": "securePassword123"
+}
+
+### Set your token here after login
+@token = PASTE_TOKEN_HERE
+
+### 4. Create a zone (admin only)
+POST {{base}}/zones
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Terminal 1 EV Charging",
+  "type": "ev_charging",
+  "total_capacity": 20,
+  "price_per_hour": 5.50
+}
+
+### 5. Get all zones (public)
+GET {{base}}/zones
+
+### 6. Get one zone (public)
+GET {{base}}/zones/1
+
+### 7. Reserve a spot (authenticated)
+POST {{base}}/reservations
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "zone_id": 1,
+  "license_plate": "ABC-1234"
+}
+
+### 8. My reservations
+GET {{base}}/reservations/my-reservations
+Authorization: Bearer {{token}}
+
+### 9. All reservations (admin only)
+GET {{base}}/reservations
+Authorization: Bearer {{token}}
+
+### 10. Cancel a reservation
+DELETE {{base}}/reservations/1
+Authorization: Bearer {{token}}
