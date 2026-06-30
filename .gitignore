@@ -1,0 +1,61 @@
+# ───── Environment & Secrets ─────
+
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ───── Compiled binaries ─────
+spotsync-api
+main
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+bin/
+build/
+dist/
+
+# ───── Go specific ─────
+
+*.test
+*.prof
+coverage.out
+coverage.html
+
+# vendor 
+vendor/
+
+# Go workspace 
+go.work
+go.work.sum
+
+# ───── Air (hot reload) ─────
+tmp/
+.air.toml.local
+
+# ───── IDE & Editor ─────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ───── OS generated ─────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ───── Logs ─────
+*.log
+logs/
